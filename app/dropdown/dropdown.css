@@ -1,0 +1,18 @@
+.custom-select {
+  /* Your custom CSS styles here */
+  /* Example styles */
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.custom-select .react-select__control {
+  /* More custom styles */
+  background-color: #f8f8f8;
+}
+
+.custom-select .react-select__option--is-selected {
+  /* Styles for selected options */
+  background-color: #e62828;
+  color: #1b6ad2;
+}

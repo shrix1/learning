@@ -10,7 +10,7 @@
 }
 
 .custom-today-day::after {
-  visibility: hidden; /* hide small border under the text */
+  visibility: hidden;
 }
 
 .DatePicker {
@@ -173,7 +173,7 @@
 }
 
 .Calendar__monthArrow {
-  border-radius: 50%;
+  border-radius: 20px;
   transition: var(--animation-duration) transform;
   pointer-events: none;
   background-repeat: no-repeat;
@@ -413,7 +413,7 @@
   font-size: 1.4em;
   min-width: 85%;
   padding: 0.2em 0.5em;
-  border-radius: 8.5px;
+  border-radius: 8px;
 }
 
 .Calendar__monthSelector.-open,
@@ -440,7 +440,7 @@
 .Calendar__monthSelectorItemText {
   border: none;
   padding: 0.4em 0.4em;
-  border-radius: 8.5px;
+  border-radius: 8px;
   font-size: 1.3em;
   min-width: 70%;
   transition: 0.3s;
@@ -542,7 +542,7 @@
   text-align: center;
   padding: calc(0.25em - 1px) 0;
   font-size: 1.6em;
-  border-radius: 20px;
+  border-radius: 4px;
   transition: 0.2s;
   border: 1px solid transparent;
   margin-bottom: 0.3em;
@@ -572,7 +572,7 @@
     .-selectedBetween
   ):not(.-selected):hover {
   background: #eaeaea;
-  border-radius: 20px;
+  border-radius: 4px;
   color: #4180c0;
   border-color: transparent;
 }
@@ -630,7 +630,7 @@
   cursor: default !important;
 }
 .Calendar__day.-selected {
-  border-radius: 50%;
+  border-radius: 4px;
 }
 .Calendar__day.-today:not(.-selectedStart):not(.-selectedEnd):not(
     .-selectedBetween
