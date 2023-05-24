@@ -9,6 +9,11 @@ export default function Home() {
 
   return (
     <div className="flex flex-col gap-5 justify-center items-center">
+      <h1 className="text-2xl tracking-widest uppercase">
+        Custom Button design
+      </h1>
+      <hr className="w-full " />
+
       <Button
         name="count by one"
         className="text-2xl w-[200px]"
@@ -24,6 +29,8 @@ export default function Home() {
         onClick={() => setCount2((p) => p + 10)}
       />
       <h1 className="text-xl text-center">{count2}</h1>
+
+      <hr className="w-full " />
     </div>
   )
 }
