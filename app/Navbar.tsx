@@ -17,6 +17,9 @@ const Navbar = () => {
         <Link href="dropdown" className="px-3 py-1 rounded-lg bg-lime-300">
           Dropdown
         </Link>
+        <Link href="zustand" className="px-3 py-1 rounded-lg bg-lime-300">
+          zustand
+        </Link>
       </div>
     </nav>
   )

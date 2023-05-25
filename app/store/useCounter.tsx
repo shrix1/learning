@@ -1,4 +1,5 @@
 import { create } from "zustand"
+import { persist } from "zustand/middleware"
 
 interface Counter {
   count: number
@@ -10,5 +11,21 @@ export const useCounter = create<Counter>((set) => ({
   setCount: (c: number) =>
     set((state) => ({
       count: state.count + c,
+    })),
+}))
+
+interface AddItems {
+  items: string[]
+  renderNow: boolean
+  setItems: (item: string) => void
+}
+
+export const useAddItems = create<AddItems>((set) => ({
+  items: [],
+  renderNow: false,
+  setItems: (item) =>
+    set((state) => ({
+      items: [...state.items, item],
+      renderNow: true,
     })),
 }))

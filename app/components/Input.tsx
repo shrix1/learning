@@ -1,4 +1,4 @@
-import React from "react"
+import React, { forwardRef } from "react"
 
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
@@ -16,6 +16,7 @@ const Input: React.FC<InputProps> = ({
   type,
   placeholder,
   className,
+
   ...props
 }) => {
   return (
