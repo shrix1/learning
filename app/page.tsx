@@ -1,11 +1,16 @@
 "use client"
-import Image from "next/image"
 import Button from "./components/Button"
 import { useState } from "react"
 import Input from "./components/Input"
+import { useCounter } from "./store/useCounter"
 
 export default function Home() {
-  const [count, setCount] = useState<number>(0)
+  // const {count,setCount} = useCounter()
+  // this is also valid approach but it will cause re-render of whole useCounter state and actions
+
+  const count = useCounter((state) => state.count)
+  const setCount = useCounter((state) => state.setCount)
+
   const [count2, setCount2] = useState<number>(0)
   const [input, setInput] = useState<string>("s")
   const [input2, setInput2] = useState<number>(0)
@@ -18,10 +23,10 @@ export default function Home() {
       <hr className="w-full " />
 
       <Button
-        name="count by one"
+        name={`count ${count}`}
         className="text-2xl w-[200px] "
         outline
-        onClick={() => setCount((p) => p + 1)}
+        onClick={() => setCount(3)}
       />
       <h1 className="text-xl text-center">{count}</h1>
       <hr className="w-full " />
