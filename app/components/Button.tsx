@@ -10,21 +10,30 @@ function cn(...inputs: ClassValue[]) {
 }
 
 // giving custom props to the component + default type of a HTML button
-interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   name?: string
   disabled?: boolean
+  outline?: boolean
 }
 
 const Button: React.FC<ButtonProps> = ({
   name,
   disabled,
   className,
+  outline,
   ...props
 }) => {
   return (
     <button
       disabled={disabled}
-      className={cn("bg-lime-200 text-lime-900 p-2 rounded-full", className)}
+      className={
+        outline
+          ? cn(
+              "border-lime-200 border-2 text-lime-900 p-2 rounded-full",
+              className
+            )
+          : cn("bg-lime-200 text-lime-900 p-2 rounded-full", className)
+      }
       {...props}
     >
       {name}
