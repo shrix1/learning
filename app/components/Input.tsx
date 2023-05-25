@@ -16,7 +16,6 @@ const Input: React.FC<InputProps> = ({
   type,
   placeholder,
   className,
-
   ...props
 }) => {
   return (
