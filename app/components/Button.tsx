@@ -29,10 +29,13 @@ const Button: React.FC<ButtonProps> = ({
       className={
         outline
           ? cn(
-              "border-lime-200 border-2 text-lime-900 p-2 rounded-full",
+              "border-lime-200 border-2 text-lime-900 p-2 rounded-full focus:ring-2 focus:ring-white focus:outline-none",
               className
             )
-          : cn("bg-lime-200 text-lime-900 p-2 rounded-full", className)
+          : cn(
+              "bg-lime-200 text-lime-900 p-2 rounded-full focus:ring-2 focus:ring-white focus:outline-none disabled:cursor-not-allowed disabled:opacity-25",
+              className
+            )
       }
       {...props}
     >
