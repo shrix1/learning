@@ -1,17 +1,20 @@
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
 
+//persist not implemensted because next js is server side rendering in development mode
+
 interface Counter {
   count: number
-  setCount: (c: number) => void
+  increment: () => void
+  decrement: () => void
+  reset: () => void
 }
 
-export const useCounter = create<Counter>((set) => ({
+export const useCounter = create<Counter>()((set) => ({
   count: 0,
-  setCount: (c: number) =>
-    set((state) => ({
-      count: state.count + c,
-    })),
+  increment: () => set((state) => ({ count: state.count + 1 })),
+  decrement: () => set((state) => ({ count: state.count - 1 })),
+  reset: () => set({ count: 0 }),
 }))
 
 interface AddItems {

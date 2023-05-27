@@ -9,7 +9,7 @@ export default function Home() {
   // this is also valid approach but it will cause re-render of whole useCounter state and actions
 
   const count = useCounter((state) => state.count)
-  const setCount = useCounter((state) => state.setCount)
+  const setCount = useCounter((state) => state.increment)
 
   const [count2, setCount2] = useState<number>(0)
   const [input, setInput] = useState<string>("s")
@@ -26,7 +26,7 @@ export default function Home() {
         name={`count ${count}`}
         className="text-2xl w-[200px] "
         outline
-        onClick={() => setCount(3)}
+        onClick={setCount}
       />
       <h1 className="text-xl text-center">{count}</h1>
       <hr className="w-full " />
