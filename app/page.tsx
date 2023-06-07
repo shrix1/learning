@@ -3,11 +3,13 @@ import Button from "./components/Button"
 import { useState } from "react"
 import Input from "./components/Input"
 import { useCounter } from "./store/useCounter"
+import { useContextGuy } from "@/context/ContextProvider"
 
 export default function Home() {
   // const {count,setCount} = useCounter()
   // this is also valid approach but it will cause re-render of whole useCounter state and actions
 
+  const { state } = useContextGuy()
   const count = useCounter((state) => state.count)
   const setCount = useCounter((state) => state.increment)
 
@@ -18,7 +20,7 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-5 justify-center items-center">
       <h1 className="text-2xl tracking-widest uppercase">
-        Custom Button design
+        Custom Button design {state}
       </h1>
       <hr className="w-full " />
 

@@ -1,8 +1,14 @@
 "use client"
 import React from "react"
+import { checkingSKills } from "../store/useCounter"
 
 const Page = () => {
   const [open, setOpen] = React.useState(false)
+  const [state, setState] = checkingSKills((state) => [
+    state.state,
+    state.setState,
+  ])
+
   return (
     <>
       <main className="w-full h-screen flex">
@@ -14,11 +20,14 @@ const Page = () => {
           <ul className="space-y-6">
             <button
               className="border-2 p-1 rounded-lg"
-              onClick={() => setOpen((prev) => !prev)}
+              onClick={() => {
+                setOpen((prev) => !prev)
+                setState("hello world")
+              }}
             >
               open
             </button>
-            <li>[0] HOME</li>
+            <li>[0] {state}</li>
             <li>[1] HOME</li>
             <li>[2] HOME</li>
             <li>[3] HOME</li>

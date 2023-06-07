@@ -7,7 +7,7 @@ interface ContextType {
 }
 
 const ContextGuy = createContext<ContextType>({
-  state: "checking", //default value
+  state: "sasa", //default value
   setState: () => {},
 })
 

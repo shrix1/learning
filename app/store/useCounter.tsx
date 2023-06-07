@@ -32,3 +32,13 @@ export const useAddItems = create<AddItems>((set) => ({
       renderNow: true,
     })),
 }))
+
+interface Skills {
+  state: string
+  setState: (name: string) => void
+}
+
+export const checkingSKills = create<Skills>((set) => ({
+  state: "sasasas",
+  setState: (name) => set({ state: name }),
+}))
