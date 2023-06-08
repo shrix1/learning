@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.something {
+  @apply text-red-500;
+}
+
+.something a {
+  @apply text-sky-500 underline;
+}
+
+.your-root-class {
+  @apply bg-gray-300;
+}
+.your-toolbar-class {
+  @apply bg-black/90;
+}
+.your-toolbarInner-class {
+  @apply bg-sky-300;
+}
+.your-toolbarGroup-class {
+  @apply bg-sky-900;
+}
+.your-toolbarControl-class {
+  @apply bg-red-200 text-black;
+}

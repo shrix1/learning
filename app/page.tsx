@@ -1,9 +1,16 @@
 "use client"
 import Button from "./components/Button"
-import { useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import Input from "./components/Input"
 import { useCounter } from "./store/useCounter"
 import { useContextGuy } from "@/context/ContextProvider"
+import dynamic from "next/dynamic"
+import "./globals.css"
+
+const RichTextEditor = dynamic(() => import("@mantine/rte"), {
+  ssr: false,
+  loading: () => null,
+})
 
 export default function Home() {
   // const {count,setCount} = useCounter()
@@ -17,9 +24,45 @@ export default function Home() {
   const [input, setInput] = useState<string>("s")
   const [input2, setInput2] = useState<number>(0)
 
+  const [value, setValue] = useState("")
+  const editorRef = useRef<any>()
+
+  const people = [
+    { id: 1, value: "Bill Horsefighter" },
+    { id: 2, value: "Amanda Hijacker" },
+    { id: 3, value: "Leo Summerhalter" },
+    { id: 4, value: "Jane Sinkspitter" },
+  ]
+
+  const tags = [
+    { id: 1, value: "JavaScript" },
+    { id: 2, value: "TypeScript" },
+    { id: 3, value: "Ruby" },
+    { id: 3, value: "Python" },
+  ]
+
+  useEffect(() => {
+    editorRef?.current?.focus()
+  }, [])
+
+  const mentions = useMemo(
+    () => ({
+      allowedChars: /^[A-Za-z\sÅÄÖåäö]*$/,
+      mentionDenotationChars: ["@", "#"],
+      source: (searchTerm: any, renderList: any, mentionChar: any) => {
+        const list = mentionChar === "@" ? people : tags
+        const includesSearchTerm = list.filter((item: any) =>
+          item.value.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+        renderList(includesSearchTerm)
+      },
+    }),
+    []
+  )
+
   return (
-    <div className="flex flex-col gap-5 justify-center items-center">
-      <h1 className="text-2xl tracking-widest uppercase">
+    <div className="flex ">
+      {/* <h1 className="text-2xl tracking-widest uppercase">
         Custom Button design {state}
       </h1>
       <hr className="w-full " />
@@ -59,7 +102,38 @@ export default function Home() {
         onChange={(e) => setInput2(e.target.valueAsNumber)}
       />
       <h1 className="text-xl text-center">{input2}</h1>
-      <hr className="w-full " />
+      <hr className="w-full " /> */}
+
+      <div className="list-disc list-item list-outside ">
+        <RichTextEditor
+          ref={editorRef}
+          value={value}
+          onChange={(e: any) => setValue(e)}
+          controls={[
+            ["bold", "italic", "underline", "link", "strike"],
+            ["h1", "h2", "h3", "h4"],
+            ["alignLeft", "alignCenter", "alignRight"],
+          ]}
+          className="w-[700px] min-h-[400px]"
+          classNames={{
+            root: "your-root-class",
+            toolbar: "your-toolbar-class",
+            toolbarInner: "your-toolbarInner-class",
+            toolbarGroup: "your-toolbarGroup-class",
+            toolbarControl: "your-toolbarControl-class",
+          }}
+          mentions={mentions}
+          onClick={() => {
+            editorRef?.current?.focus()
+            console.log("sasa")
+          }}
+        />
+      </div>
+
+      <div
+        dangerouslySetInnerHTML={{ __html: value }}
+        className="something"
+      ></div>
     </div>
   )
 }
