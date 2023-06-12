@@ -25,7 +25,6 @@ export default function Home() {
   const [input2, setInput2] = useState<number>(0)
 
   const [value, setValue] = useState("")
-  const editorRef = useRef<any>()
 
   const people = [
     { id: 1, value: "Bill Horsefighter" },
@@ -40,10 +39,6 @@ export default function Home() {
     { id: 3, value: "Ruby" },
     { id: 3, value: "Python" },
   ]
-
-  useEffect(() => {
-    editorRef?.current?.focus()
-  }, [])
 
   const mentions = useMemo(
     () => ({
@@ -106,15 +101,15 @@ export default function Home() {
 
       <div className="list-disc list-item list-outside ">
         <RichTextEditor
-          ref={editorRef}
           value={value}
           onChange={(e: any) => setValue(e)}
           controls={[
-            ["bold", "italic", "underline", "link", "strike"],
+            ["bold", "italic", "underline", "strike"],
             ["h1", "h2", "h3", "h4"],
+            ["unorderedList", "orderedList", "clean"],
             ["alignLeft", "alignCenter", "alignRight"],
+            ["link", "codeBlock"],
           ]}
-          className="w-[700px] min-h-[400px]"
           classNames={{
             root: "your-root-class",
             toolbar: "your-toolbar-class",
@@ -122,18 +117,19 @@ export default function Home() {
             toolbarGroup: "your-toolbarGroup-class",
             toolbarControl: "your-toolbarControl-class",
           }}
+          placeholder="Type something..."
           mentions={mentions}
-          onClick={() => {
-            editorRef?.current?.focus()
-            console.log("sasa")
-          }}
         />
       </div>
 
-      <div
-        dangerouslySetInnerHTML={{ __html: value }}
-        className="something"
-      ></div>
+      <div className="flex flex-col gap-10">
+        <div
+          dangerouslySetInnerHTML={{ __html: value }}
+          className="something w-[500px] p-2 h-[600px] border-2"
+        ></div>
+
+        {value}
+      </div>
     </div>
   )
 }

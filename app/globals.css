@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .something {
-  @apply text-red-500;
+  @apply text-white;
 }
 
 .something a {
@@ -11,17 +11,60 @@
 }
 
 .your-root-class {
-  @apply bg-gray-300;
+  @apply border;
 }
 .your-toolbar-class {
-  @apply bg-black/90;
+  @apply bg-sky-600/30;
 }
 .your-toolbarInner-class {
-  @apply bg-sky-300;
 }
 .your-toolbarGroup-class {
-  @apply bg-sky-900;
+  @apply rounded-md;
 }
 .your-toolbarControl-class {
-  @apply bg-red-200 text-black;
+  @apply text-black border border-black/40;
+}
+
+.ql-editor {
+  @apply min-h-[200px];
+}
+
+.ql-align-center {
+  @apply text-center;
+}
+
+.ql-align-right {
+  @apply text-right;
+}
+
+.ql-align-left {
+  @apply text-left;
+}
+
+.something h1 {
+  @apply text-3xl;
+}
+
+.something h2 {
+  @apply text-2xl;
+}
+
+.something h3 {
+  @apply text-xl;
+}
+
+.something h4 {
+  @apply text-lg;
+}
+
+.something pre {
+  @apply border border-red-300 p-3 rounded-lg bg-white/30;
+}
+
+.something ul {
+  @apply list-disc list-inside list-item ml-2;
+}
+
+.something ol {
+  @apply list-decimal list-inside list-item ml-2;
 }
