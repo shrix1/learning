@@ -25,11 +25,10 @@ const Page = () => {
   const [items, setItems] = useState(content)
 
   const handleOnDragEnd = (result: any) => {
-    //if there is no destination there like the
-    //user dragged the item outside the droppable area, do nothing
+    //user dragged the item outside the droppable area
     if (!result.destination) return
 
-    //if the item is dropped in the same place it was before, do nothing
+    //if the item is dropped in the same place it was before
     if (
       result.source.index === result.destination.index &&
       result.source.draggableId === result.destination.draggableId
@@ -39,11 +38,11 @@ const Page = () => {
     //duplicating the array
     const newItems = [...items]
 
-    //removing the item from the array
+    //removing the item from the array using splice method
     const [reorderedItem] = newItems.splice(result.source.index, 1)
 
     //adding the item to the array in the destination index
-    // (adding index , removing index, item)
+    // (adding index , removing count, item)
     newItems.splice(result.destination.index, 0, reorderedItem)
 
     //update the state
