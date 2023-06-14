@@ -23,6 +23,9 @@ const Navbar = () => {
         <Link href="sidebar" className="px-3 py-1 rounded-lg bg-lime-300">
           Sidebar
         </Link>
+        <Link href="dnd" className="px-3 py-1 rounded-lg bg-lime-300">
+          dnd
+        </Link>
       </div>
     </nav>
   )
