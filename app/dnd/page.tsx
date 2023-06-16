@@ -11,17 +11,17 @@ const Page = () => {
       placeholder: "Enter your name",
     },
     {
-      id: 2,
+      id: 9,
       type: "para",
       placeholder: "Enter description",
     },
     {
-      id: 3,
+      id: 2,
       type: "radio",
       placeholder: "edit",
     },
     {
-      id: 4,
+      id: 10,
       type: "text",
       placeholder: "Email",
     },
