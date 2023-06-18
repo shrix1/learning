@@ -18,7 +18,11 @@ const SheetDemo = () => {
       <SheetTrigger asChild>
         <Button>Open</Button>
       </SheetTrigger>
-      <SheetContent position="right" size="sm" className="bg-red-400">
+      <SheetContent
+        position="right"
+        size="sm"
+        className="bg-red-400 w-[80%] md:w-[30%]"
+      >
         <SheetHeader>
           <SheetTitle>Edit profile</SheetTitle>
           <SheetDescription className="">

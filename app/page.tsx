@@ -7,6 +7,7 @@ import { useContextGuy } from "@/context/ContextProvider"
 import dynamic from "next/dynamic"
 import "./globals.css"
 import Sheet from "./Sheet"
+import { v4 as uuid } from "uuid"
 
 const RichTextEditor = dynamic(() => import("@mantine/rte"), {
   ssr: false,
@@ -55,6 +56,9 @@ export default function Home() {
     }),
     []
   )
+
+  const id = uuid()
+  console.log(id)
 
   return (
     <div className="flex ">
