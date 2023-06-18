@@ -6,6 +6,7 @@ import { useCounter } from "./store/useCounter"
 import { useContextGuy } from "@/context/ContextProvider"
 import dynamic from "next/dynamic"
 import "./globals.css"
+import Sheet from "./Sheet"
 
 const RichTextEditor = dynamic(() => import("@mantine/rte"), {
   ssr: false,
@@ -99,7 +100,7 @@ export default function Home() {
       <h1 className="text-xl text-center">{input2}</h1>
       <hr className="w-full " /> */}
 
-      <div className="list-disc list-item list-outside ">
+      {/* <div className="list-disc list-item list-outside ">
         <RichTextEditor
           value={value}
           onChange={(e: any) => setValue(e)}
@@ -129,7 +130,9 @@ export default function Home() {
         ></div>
 
         {value}
-      </div>
+      </div> */}
+
+      <Sheet />
     </div>
   )
 }
