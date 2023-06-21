@@ -15,6 +15,10 @@ const RichTextEditor = dynamic(() => import("@mantine/rte"), {
 })
 
 export default function Home() {
+  const uuids = uuid()
+  console.log(uuids)
+  //uuid change everyRender
+
   // const {count,setCount} = useCounter()
   // this is also valid approach but it will cause re-render of whole useCounter state and actions
 
