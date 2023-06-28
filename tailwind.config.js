@@ -21,6 +21,17 @@ module.exports = {
     },
     extend: {
       colors: {
+        //change color with hex code here:
+        "primary-one": "#136af3",
+        // "primary-one": "hsl(var(--primary-one))",
+        "bg-gray": "hsl(var(--white-gray))",
+        "bg-white": "hsl(var(--pure-white))",
+        "text-icon": "hsl(var(--text-icon))",
+        "d-primary": "hsl(var(--dark-primary))",
+        "d-secondary": "hsl(var(--dark-secondary))",
+        "btn-hover": "hsl(var(--on-hover))",
+        "d-para": "hsl(var(--dark-para))",
+        "d-border": "hsl(var(--dark-border))",
         tremor: {
           brand: {
             faint: "#eff6ff", // blue-50
@@ -187,6 +198,7 @@ module.exports = {
         /^(fill-(?:slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-(?:50|100|200|300|400|500|600|700|800|900|950))$/,
     },
   ],
-  plugins: [require("tailwindcss-animate")],
   plugins: [require("@headlessui/tailwindcss")],
+  plugins: [require("tailwindcss-animate")],
+  plugins: [require("@tailwindcss/forms")],
 }
