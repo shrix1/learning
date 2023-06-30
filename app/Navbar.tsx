@@ -14,6 +14,7 @@ const Navbar = () => {
     { name: "custom C/r", path: "/Custom" },
     { name: "Chart", path: "/chart" },
     { name: "Table", path: "/table" },
+    { name: "LandingPage", path: "/landingPage" },
   ]
   return (
     <nav className="w-full p-3 bg-black text-black border-b-2 border-b-lime-300 ">
