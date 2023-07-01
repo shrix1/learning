@@ -1,5 +1,4 @@
 import Link from "next/link"
-import path from "path"
 import React from "react"
 
 const Navbar = () => {
@@ -15,6 +14,7 @@ const Navbar = () => {
     { name: "Chart", path: "/chart" },
     { name: "Table", path: "/table" },
     { name: "LandingPage", path: "/landingPage" },
+    { name: "animate", path: "/animate" },
   ]
   return (
     <nav className="w-full p-3 bg-black text-black border-b-2 border-b-lime-300 ">
